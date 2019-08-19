@@ -14,7 +14,7 @@ namespace Serko.Controllers
 
         private IExpense expenseRepo;
 
-        public TotalExpenseController()
+       public TotalExpenseController()
         {
             expenseRepo = new ExpenseRepo();
         }
@@ -23,7 +23,13 @@ namespace Serko.Controllers
         // GET: Expenses
         public ActionResult Index()
         {
-            return View("Index");
+            return View("Index",expenseRepo.Get());
+        }
+
+        // GET: Expenses
+        public ActionResult Expense()
+        {
+            return View("Expense", expenseRepo.Get());
         }
 
         [HandleError(View = "Error")]

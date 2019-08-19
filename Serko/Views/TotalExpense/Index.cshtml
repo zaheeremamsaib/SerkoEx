@@ -9,7 +9,7 @@
     <script type="text/javascript" src="~/Scripts/libs/main.js"></script>
 
     <script type="text/javascript">
-        var originalLabels = [ '@Html.Raw(string.Join("', '", Model.CostCentre))'];
+       var originalLabels = [ '@Html.Raw(string.Join("', '", Model.CostCentre))'];
     </script>
 
 }
@@ -19,17 +19,33 @@
 }
 
 <body>
- 
+
     <div>
 
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.Vendor)
             </dt>
 
             <dd ng-model="Id">
-                @Html.DisplayFor(model => model.Id)
+                @Html.DisplayFor(model => model.Vendor)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd ng-model="Description">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
+
+            <dd ng-model="Date">
+                @Html.DisplayFor(model => model.Date)
             </dd>
 
             <dt>
@@ -41,6 +57,38 @@
             </dd>
 
             <dt>
+                @Html.DisplayNameFor(model => model.Payment_method)
+            </dt>
+
+            <dd ng-model="Payment_Method">
+                @Html.DisplayFor(model => model.Payment_method)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalExcl)
+            </dt>
+
+            <dd ng-model="TotalExcl">
+                @Html.DisplayFor(model => model.TotalExcl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Gst)
+            </dt>
+
+            <dd ng-model="Gst">
+                @Html.DisplayFor(model => model.Gst)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GstAmount)
+            </dt>
+
+            <dd ng-model="GstAmount">
+                @Html.DisplayFor(model => model.GstAmount)
+            </dd>
+
+            <dt>
                 @Html.DisplayNameFor(model => model.Total)
             </dt>
 
@@ -48,13 +96,7 @@
                 @Html.DisplayFor(model => model.Total)
             </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Payment_method)
-            </dt>
 
-            <dd ng-model="Payment_Method">
-                @Html.DisplayFor(model => model.Payment_method)
-            </dd>
 
         </dl>
 
