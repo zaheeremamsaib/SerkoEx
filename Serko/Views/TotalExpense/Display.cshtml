@@ -1,0 +1,56 @@
+﻿@model Serko.Models.TotalExpense
+
+@{
+    ViewBag.Title = "Total Expense";
+}
+<script src="~/Scripts/Applications/WAExpenseGetApp.js"></script>
+<script src="~/Scripts/Services/WAExpenseGetService.js"></script>
+<script src="~/Scripts/Controllers/WAExpenseGetController.js"></script>
+
+<h2>Expense Details</h2>
+
+<div ng-app="MyApp">
+
+    <div id="tblSubs" ng-controller="WAExpenseGetController">
+
+        <table class="table">
+            <tr>
+                <th>Vendor</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Cost Center</th>
+                <th>Payment Method</th>
+            </tr>
+            <tr>
+                <td>{{expense.Vendor}}</td>
+                <td>{{expense.Description}}</td>
+                <td>{{expense.Date}}</td>
+                <td>{{expense.CostCentre}}</td>
+                <td>{{expense.Payment_method}}</td>
+            </tr>
+            <tr><th height="100" colspan="5"></th></tr>
+            <tr>
+                <th colspan="3"></th>
+                <th> Total excl GST </th>
+                <th>${{expense.TotalExcl}}</th>
+            </tr>
+            <tr> 
+                <th colspan="3"></th>
+                <th>GST({{expense.Gst}}%) Amount </th>
+                <th>${{expense.GstAmount}}</th>
+            </tr>
+            <tr>
+                <th colspan="3"></th>
+                <th> Total incl GST </th>
+                <th>${{expense.Total}}</th>
+            </tr>
+
+        </table>
+
+
+        <table><tr><td><td>{{result}}</td></tr></table>
+        
+    </div>
+
+
+</div>

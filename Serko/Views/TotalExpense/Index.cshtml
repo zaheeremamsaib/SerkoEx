@@ -1,0 +1,64 @@
+﻿@model Serko.Models.TotalExpense
+
+@section Scripts {
+
+    <script type="text/javascript" src="~/Scripts/libs/runtime.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/polyfills.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/styles.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/vendor.js"></script>
+    <script type="text/javascript" src="~/Scripts/libs/main.js"></script>
+
+    <script type="text/javascript">
+        var originalLabels = [ '@Html.Raw(string.Join("', '", Model.CostCentre))'];
+    </script>
+
+}
+
+@{
+    ViewBag.Title = "Total Expense";
+}
+
+<body>
+ 
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+
+            <dd ng-model="Id">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CostCentre)
+            </dt>
+
+            <dd ng-model="CostCenter">
+                @Html.DisplayFor(model => model.CostCentre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Total)
+            </dt>
+
+            <dd ng-model="Total">
+                @Html.DisplayFor(model => model.Total)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Payment_method)
+            </dt>
+
+            <dd ng-model="Payment_Method">
+                @Html.DisplayFor(model => model.Payment_method)
+            </dd>
+
+        </dl>
+
+    </div>
+
+</body>
+

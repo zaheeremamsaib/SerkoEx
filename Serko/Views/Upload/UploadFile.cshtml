@@ -1,0 +1,49 @@
+﻿@model Serko.Models.Upload
+
+@{
+    ViewBag.Title = "Uploading Data";
+}
+
+<h2>UploadFile</h2>
+
+@using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+        <table id="myTable" class="table">
+            <tr>
+                <th>Instructions: There are 2 options: Uploading a file or Copying and pasting your data</th>
+
+                <td>
+                    <text>Click on Browse to select a file. Thereafter click on upload</text>
+
+                    @Html.TextBox("file", "", new { type = "file" }) <br />
+
+                    <input class="btn btn-primary" name="command" type="submit" value="UploadFile" />
+
+                   
+                </td>
+                <td>
+                    <img src="~/images/OR.png" height="230" />
+                </td>
+
+                <td align="left">
+                    <text>Copy and paste your text into the block. Thereafter click on upload</text>
+   
+                    @Html.TextArea("data", new { @rows = 8, @cols = 60 }) <br /><br />
+
+
+                    <input class="btn btn-primary" name="command" type="submit" value="UploadData" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+                <th><b>Status:</b> @ViewBag.Message</th>
+                <th></th>
+                <th> @Html.ActionLink("View Expense", "Display", "TotalExpense", null, new { @class = "btn btn-primary" })</th>
+            </tr>
+        </table>
+    </div>
+
+
+}  

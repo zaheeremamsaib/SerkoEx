@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* my table settings */
+#myTable{
+    width: 100%;
+    padding: 20px;
+
+}
