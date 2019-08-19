@@ -16,17 +16,32 @@ namespace Serko.Services
       
         public Expense Get()
         {
-
-            string fragxml = cleanData(getXMLtext(getFilePath()));
-
-            TotalExpense tExpense = populateTotalExpense(fragxml);
-            
-            if (tExpense.Total > 0)
+            string fragxml="";
+            TotalExpense tExpense= new TotalExpense();
+            try
             {
-                calcTotalexcl(tExpense);
-            }
+                fragxml = cleanData(getXMLtext(getFilePath()));
+                tExpense = populateTotalExpense(fragxml);
 
-            return (tExpense);
+                if (tExpense.Total > 0)
+                {
+                    calcTotalexcl(tExpense);
+                }
+            }
+            catch (FileNotFoundException)
+            {
+
+            }
+            catch (XmlException)
+            {
+
+            }
+            catch(Exception)
+            {
+
+            }
+            
+            return tExpense;
         }
 
         public TotalExpense calcTotalexcl(TotalExpense tExpense)
@@ -56,6 +71,7 @@ namespace Serko.Services
 
         public string getFilePath()
         {
+           
             string app_path = HttpContext.Current.Request.PhysicalPath;
             string app_url = HttpContext.Current.Request.RawUrl;
             string s = app_path.Replace("\\", "/");
